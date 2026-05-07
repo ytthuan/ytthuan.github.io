@@ -35,6 +35,6 @@
 - GitHub: https://github.com/ytthuan
 - LinkedIn: https://www.linkedin.com/in/thuan-yen-82b482123/
 
-## Writing
+## Blog
 - Engineering AI solutions that earn trust — https://ytthuan.github.io/articles/ai-trust-controls.html — Six pillars of trustworthy AI in production (governance, security, observability, guardrails, red teaming, continuous evaluation) mapped from NIST AI RMF, OWASP LLM Top 10, and Microsoft Responsible AI onto the Azure AI stack.
 - Why agent systems need architecture — https://ytthuan.github.io/articles/agents-system-philosophy.html — Six axioms behind the open-source `ytthuan/agents-system-setup` plugin: interview-first, mandatory topology, MCP approval gate, Canonical IR for replication, parallel waves, evidence over success-shaped summaries.

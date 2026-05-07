@@ -1530,21 +1530,21 @@ h3 {
     font-size: var(--fs-h3-md);
   }
 }
-/* ============================== Writing teaser ============================== */
-/* Home-page Writing section: cards link out to long-form articles.            */
+/* ============================== Blog teaser ============================== */
+/* Home-page Blog section: cards link out to long-form articles.              */
 
-.writing {
+.blog {
   padding: clamp(2rem, 4vw, 3.5rem);
 }
 
-.writing-grid {
+.blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
   margin-top: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.writing-card {
+.blog-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -1561,28 +1561,28 @@ h3 {
     box-shadow var(--transition);
 }
 
-.writing-card-media {
+.blog-card-media {
   display: block;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: var(--glass);
 }
 
-.writing-card-media img {
+.blog-card-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 600ms var(--ease);
 }
 
-.writing-card-body {
+.blog-card-body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   padding: 1.5rem 1.5rem 1.65rem;
 }
 
-.writing-card-eyebrow {
+.blog-card-eyebrow {
   margin: 0;
   color: var(--cyan);
   font-family: var(--mono);
@@ -1592,7 +1592,7 @@ h3 {
   text-transform: uppercase;
 }
 
-.writing-card h3 {
+.blog-card h3 {
   margin: 0;
   font-family: var(--display);
   font-size: var(--fs-h3);
@@ -1601,14 +1601,14 @@ h3 {
   color: var(--text-strong);
 }
 
-.writing-card-dek {
+.blog-card-dek {
   margin: 0;
   color: var(--muted);
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
 }
 
-.writing-card-meta {
+.blog-card-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1621,7 +1621,7 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
-.writing-card-link {
+.blog-card-link {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -1636,7 +1636,7 @@ h3 {
 /* Stretched-link technique: the visible "Read article →" anchor gets a    */
 /* pseudo-element overlay so the entire card is clickable. Hover/focus     */
 /* still surface from the real anchor for accessibility & screen readers.  */
-.writing-card-link::after {
+.blog-card-link::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1644,47 +1644,47 @@ h3 {
   z-index: 1;
 }
 
-.writing-card-link > * {
+.blog-card-link > * {
   position: relative;
   z-index: 2;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .writing-card:hover {
+  .blog-card:hover {
     transform: translateY(-3px);
     border-color: var(--line-strong);
     box-shadow: var(--shadow);
   }
 
-  .writing-card:hover .writing-card-media img {
+  .blog-card:hover .blog-card-media img {
     transform: scale(1.03);
   }
 
-  .writing-card:hover .writing-card-link {
+  .blog-card:hover .blog-card-link {
     color: var(--teal);
     transform: translateX(2px);
   }
 }
 
-.writing-card:focus-within {
+.blog-card:focus-within {
   border-color: var(--line-strong);
   box-shadow: var(--shadow);
 }
 
 @media (max-width: 720px) {
-  .writing-grid {
+  .blog-grid {
     grid-template-columns: 1fr;
   }
 
-  .writing-card-body {
+  .blog-card-body {
     padding: 1.25rem 1.25rem 1.4rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .writing-card,
-  .writing-card-media img,
-  .writing-card-link {
+  .blog-card,
+  .blog-card-media img,
+  .blog-card-link {
     transition: none;
     transform: none;
   }
