@@ -115,7 +115,7 @@ body.is-article main {
 
 @media (min-width: 1024px) {
   .article-body {
-    width: min(1080px, calc(100vw - 2rem));
+    width: var(--reading-width);
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
     gap: 3rem;
@@ -593,18 +593,11 @@ body.is-article main {
 }
 
 /* ---------- Article topbar overrides ---------- */
-/* The global topbar (styles.css) stacks brandmark above nav at <=1180px and  */
-/* expands to var(--container) (~1480px), which on article pages causes two   */
-/* visible issues:                                                            */
-/*  1. The topbar pill overhangs the 1080px article column on wide viewports. */
-/*  2. At 1024-1180px the stacked topbar (~138px tall) covers the sticky TOC  */
-/*     (top: 6rem = 96px) when the user scrolls.                              */
-/* Both are scoped to article pages here.                                     */
-
-body.is-article .article-topbar {
-  max-width: min(1080px, calc(100vw - 2rem));
-  margin-inline: auto;
-}
+/* Phase 12: shell-width is now globally unified at 1240px, so the article  */
+/* topbar inherits the same width as the home topbar — no separate cap      */
+/* needed. The 1024-1180 grid override below is still required to prevent   */
+/* the stacked topbar (~138px tall) from covering the sticky TOC at top:6rem*/
+/* (96px) when the user scrolls in that viewport band.                      */
 
 @media (min-width: 1024px) and (max-width: 1180px) {
   body.is-article .article-topbar {
@@ -614,8 +607,9 @@ body.is-article .article-topbar {
 }
 
 /* ---------- Article hero/page width constraints ---------- */
-/* Keep article content centered and reasonably bounded; the hero illustration */
-/* should not eat the entire fold on desktop.                                  */
+/* Article reading width (1080) is intentionally narrower than the shell    */
+/* (1240). Article main is centered with margin auto; topbar pill extends   */
+/* ~80px each side beyond it — small enough to read as intentional layout.  */
 
 body.is-article main.article-page {
   width: min(960px, calc(100vw - 2rem));
@@ -632,7 +626,7 @@ body.is-article main.article-page {
 
 @media (min-width: 1024px) {
   body.is-article main.article-page {
-    width: min(1080px, calc(100vw - 2rem));
+    width: var(--reading-width);
   }
 }
 

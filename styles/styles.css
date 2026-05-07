@@ -22,7 +22,9 @@
   --display: "Inter Tight", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", sans-serif;
   --mono: "JetBrains Mono", "IBM Plex Mono", monospace;
-  --container: min(1480px, calc(100vw - 2rem));
+  --shell-width: min(1240px, calc(100vw - 2rem));
+  --reading-width: min(1080px, calc(100vw - 2rem));
+  --container: var(--shell-width);
   --radius-xl: 2rem;
   --radius-lg: 1.35rem;
   --radius-md: 0.9rem;
@@ -327,9 +329,19 @@ button:focus-visible {
 
 .nav-link:hover,
 .nav-link.is-active,
+.nav-link[aria-current="page"],
 .footer-nav a:hover {
   color: var(--text);
   background: rgba(59, 74, 214, 0.08);
+}
+
+/* Persistent active state: slightly stronger than hover so users see */
+/* "this is the current page" while still getting hover feedback elsewhere. */
+.nav-link.is-active,
+.nav-link[aria-current="page"] {
+  color: var(--text-strong);
+  background: rgba(59, 74, 214, 0.14);
+  font-weight: 600;
 }
 
 .nav-cta {
