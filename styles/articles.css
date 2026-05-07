@@ -115,7 +115,7 @@ body.is-article main {
 
 @media (min-width: 1024px) {
   .article-body {
-    width: min(1180px, calc(100vw - 2rem));
+    width: min(1080px, calc(100vw - 2rem));
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
     gap: 3rem;
@@ -199,6 +199,7 @@ body.is-article main {
   letter-spacing: var(--ls-tight);
   color: var(--text-strong);
   border-left: 3px solid var(--cyan);
+  scroll-margin-top: 6rem;
 }
 
 .article-prose h3 {
@@ -208,6 +209,7 @@ body.is-article main {
   line-height: var(--lh-snug);
   letter-spacing: var(--ls-snug);
   color: var(--text-strong);
+  scroll-margin-top: 6rem;
 }
 
 .article-prose ul,
@@ -588,6 +590,27 @@ body.is-article main {
   letter-spacing: 0;
   color: var(--muted);
   font-weight: 500;
+}
+
+/* ---------- Article topbar overrides ---------- */
+/* The global topbar (styles.css) stacks brandmark above nav at <=1180px and  */
+/* expands to var(--container) (~1480px), which on article pages causes two   */
+/* visible issues:                                                            */
+/*  1. The topbar pill overhangs the 1080px article column on wide viewports. */
+/*  2. At 1024-1180px the stacked topbar (~138px tall) covers the sticky TOC  */
+/*     (top: 6rem = 96px) when the user scrolls.                              */
+/* Both are scoped to article pages here.                                     */
+
+body.is-article .article-topbar {
+  max-width: min(1080px, calc(100vw - 2rem));
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) and (max-width: 1180px) {
+  body.is-article .article-topbar {
+    grid-template-columns: minmax(14rem, 1fr) auto;
+    border-radius: 999px;
+  }
 }
 
 /* ---------- Article hero/page width constraints ---------- */
