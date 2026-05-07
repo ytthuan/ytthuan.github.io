@@ -1,0 +1,15 @@
+{
+  "name": "Thuan Yen Thanh — Azure Cloud Solution Architect Portfolio",
+  "short_name": "Thuan Yen Thanh",
+  "description": "Azure Cloud Solution Architect serving customers from enterprise to SMB. Azure, Microsoft Fabric, Azure OpenAI, Microsoft Foundry Agent Service.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f4ee",
+  "theme_color": "#f7f4ee",
+  "lang": "en",
+  "icons": [
+    { "src": "images/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "images/og/og-default.png", "sizes": "1200x630", "type": "image/png", "purpose": "any" }
+  ]
+}

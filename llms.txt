@@ -1,0 +1,40 @@
+# Thuan Yen Thanh — Azure Cloud Solution Architect
+
+> Portfolio of Thuan Yen Thanh (also known as Leo Yen), Azure Cloud Solution Architect serving customers from enterprise to SMB. Based in Hung Yen, Vietnam.
+
+## Site
+- Home: https://ytthuan.github.io/
+
+## Role and focus
+- Azure Cloud Solution Architect serving customers from enterprise to SMB.
+- Helps customers from enterprise to SMB adopt Azure across infrastructure, data, AI, app modernization, and security.
+- Strong focus on Microsoft Fabric, Azure OpenAI, Microsoft Foundry Agent Service, Azure AI Foundry Agents SDK, multi-agent orchestration, AI coding agents (GitHub Copilot, Claude Code, Codex, OpenCode, Cursor), and Model Context Protocol (MCP).
+- 11+ years across software engineering, enterprise support, Azure migration consulting, presales solution design, and full-stack cloud architecture.
+
+## Skills
+- Azure infrastructure and landing zones (CAF/WAF aligned).
+- Microsoft Fabric: Lakehouse/Warehouse, OneLake, Direct Lake, Spark, Synapse, Purview, semantic models, Direct Lake mode, DAX optimization, RLS.
+- Azure AI: Azure OpenAI, AI Foundry, AI Search, Document Intelligence, Semantic Kernel, prompt engineering, Responsible AI.
+- Foundry agents and multi-agent orchestration: Microsoft Foundry Agent Service, AI Foundry Agents SDK, sequential workflows, group chat, HITL, MCP, Logic Apps integration.
+- AI coding agents: GitHub Copilot, Claude Code, Codex, OpenCode, Cursor for prompt-to-patch, refactoring, and PR review.
+- App modernization on Azure PaaS: Functions, App Service, AKS, Container Apps, API Management, microservices, GitHub Actions, Azure DevOps.
+- Security, identity, and governance: Microsoft Entra ID, Defender for Cloud, Zero Trust, policy.
+- Cloud presales and adoption: discovery, landing-zone delivery, workshops, MSX/MCEM, win themes.
+
+## Education
+- Hanoi University of Science and Technology (HUST), Bachelor's degree, 2014 — graded "Good".
+
+## Certifications (verify on Microsoft Learn)
+- Microsoft Certified: Azure Solutions Architect Expert — https://learn.microsoft.com/api/credentials/share/en-us/LeoYen/4B07B24757624A30?sharingId=82841004015F6DB8
+- Microsoft Certified: Fabric Analytics Engineer Associate — https://learn.microsoft.com/api/credentials/share/en-us/LeoYen/45B72295A89F0789?sharingId=82841004015F6DB8
+- Microsoft Certified: Fabric Data Engineer Associate — https://learn.microsoft.com/api/credentials/share/en-us/LeoYen/652BB47F9FBA6796?sharingId=82841004015F6DB8
+- GitHub Copilot — https://learn.microsoft.com/api/credentials/share/en-us/LeoYen/AC9949A4C9D25A08?sharingId=82841004015F6DB8
+
+## Contact
+- Email: yenthuan@gmail.com
+- GitHub: https://github.com/ytthuan
+- LinkedIn: https://www.linkedin.com/in/thuan-yen-82b482123/
+
+## Writing
+- Engineering AI solutions that earn trust — https://ytthuan.github.io/articles/ai-trust-controls.html — Six pillars of trustworthy AI in production (governance, security, observability, guardrails, red teaming, continuous evaluation) mapped from NIST AI RMF, OWASP LLM Top 10, and Microsoft Responsible AI onto the Azure AI stack.
+- Why agent systems need architecture — https://ytthuan.github.io/articles/agents-system-philosophy.html — Six axioms behind the open-source `ytthuan/agents-system-setup` plugin: interview-first, mandatory topology, MCP approval gate, Canonical IR for replication, parallel waves, evidence over success-shaped summaries.

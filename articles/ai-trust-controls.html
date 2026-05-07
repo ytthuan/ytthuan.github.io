@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engineering AI solutions that earn trust — Thuan Yen Thanh</title>
+    <meta name="description" content="Six pillars of trustworthy AI in production: governance, security, observability, guardrails, red teaming, and continuous evaluation — mapped from NIST AI RMF, OWASP LLM Top 10, and Microsoft Responsible AI onto the Azure AI stack." />
+    <meta name="author" content="Thuan Yen Thanh" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#f7f4ee" />
+    <link rel="canonical" href="https://ytthuan.github.io/articles/ai-trust-controls.html" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Thuan Yen Thanh — Azure Cloud Solution Architect Portfolio" />
+    <meta property="og:title" content="Engineering AI solutions that earn trust — Thuan Yen Thanh" />
+    <meta property="og:description" content="Six pillars of trustworthy AI in production: governance, security, observability, guardrails, red teaming, and continuous evaluation — mapped from NIST AI RMF, OWASP LLM Top 10, and Microsoft Responsible AI onto the Azure AI stack." />
+    <meta property="og:url" content="https://ytthuan.github.io/articles/ai-trust-controls.html" />
+    <meta property="og:image" content="https://ytthuan.github.io/images/og/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Engineering AI solutions that earn trust — Thuan Yen Thanh" />
+    <meta name="twitter:description" content="Six pillars of trustworthy AI in production: governance, security, observability, guardrails, red teaming, and continuous evaluation — mapped from NIST AI RMF, OWASP LLM Top 10, and Microsoft Responsible AI onto the Azure AI stack." />
+    <meta name="twitter:image" content="https://ytthuan.github.io/images/og/og-default.png" />
+
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/articles.css" />
+
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Engineering AI solutions that earn trust","description":"Six pillars of trustworthy AI in production: governance, security, observability, guardrails, red teaming, and continuous evaluation — mapped from NIST AI RMF, OWASP LLM Top 10, and Microsoft Responsible AI onto the Azure AI stack.","image":"https://ytthuan.github.io/images/articles/ai-trust-controls-hero.webp","datePublished":"2025-11-14","dateModified":"2025-11-14","author":{"@id":"https://ytthuan.github.io/#person"},"publisher":{"@id":"https://ytthuan.github.io/#person"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ytthuan.github.io/articles/ai-trust-controls.html"},"articleSection":"AI Engineering","keywords":"AI governance, AI security, AI observability, AI guardrails, red teaming, continuous evaluation, NIST AI RMF, OWASP LLM Top 10, Microsoft Responsible AI, Azure AI Foundry, Azure AI Content Safety, Defender for AI"}
+    </script>
+  </head>
+  <body class="is-article">
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+    <div class="site-ambient" aria-hidden="true">
+      <div class="ambient-orb orb-cyan"></div>
+      <div class="ambient-orb orb-amber"></div>
+      <div class="ambient-grid"></div>
+      <div class="ambient-noise"></div>
+    </div>
+
+    <div class="site-shell">
+      <header class="topbar glass-panel article-topbar" data-surface>
+        <a class="brandmark" href="../index.html#about" aria-label="Back to portfolio">
+          <span class="brandmark-sigil">TY</span>
+          <span class="brandmark-copy">
+            <strong>Thuan Yen Thanh</strong>
+            <small>Azure Cloud Solution Architect</small>
+          </span>
+        </a>
+        <nav class="topnav" aria-label="Primary navigation">
+          <a class="nav-link" href="../index.html#about">About</a>
+          <a class="nav-link" href="../index.html#skills">Skills</a>
+          <a class="nav-link" href="../index.html#certifications">Certifications</a>
+          <a class="nav-link" href="../index.html#journey">Journey</a>
+          <a class="nav-link" href="../index.html#writing" aria-current="page">Writing</a>
+          <a class="nav-link" href="../index.html#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="article-page">
+        <article>
+          <header class="article-hero" data-reveal>
+            <figure class="article-hero-visual">
+              <picture>
+                <source srcset="../images/articles/ai-trust-controls-hero.webp" type="image/webp" />
+                <img src="../images/articles/ai-trust-controls-hero.png"
+                     alt="Abstract isometric AI trust observatory with overlapping translucent control surfaces."
+                     width="1536" height="1024" loading="eager" decoding="async" fetchpriority="high" />
+              </picture>
+            </figure>
+            <p class="eyebrow"><span>AI Engineering</span><span>Trust Controls</span></p>
+            <h1>Engineering AI solutions that earn trust.</h1>
+            <p class="article-deck">
+              Trustworthy AI is not a policy document and not a single guardrail toggle.
+              It is an architecture: six interlocking control surfaces that together
+              decide whether a model becomes a system a customer can adopt — or a
+              prototype that quietly stalls before it ever reaches production.
+            </p>
+            <p class="article-hero-meta">
+              <time datetime="2025-11-14">November 14, 2025</time>
+              <span aria-hidden="true">·</span>
+              <span>~5 min read</span>
+              <span aria-hidden="true">·</span>
+              <span>Azure Cloud Solution Architect</span>
+            </p>
+          </header>
+
+          <aside class="article-toc" aria-label="On this page">
+            <p class="eyebrow">On this page</p>
+            <ol>
+              <li><a href="#control-surface">The control surface</a></li>
+              <li><a href="#pillars">Six pillars in detail</a></li>
+              <li><a href="#operating-model">Operating model — separation of duties</a></li>
+              <li><a href="#trust-loop">The minimum viable trust loop</a></li>
+              <li><a href="#closing">Closing</a></li>
+            </ol>
+          </aside>
+
+          <div class="article-prose" data-reveal>
+            <p>
+              These are personal architectural notes drawn from production work as an
+              Azure Cloud Solution Architect. They are <strong>not</strong> vendor guidance,
+              not an official prescription, and not a substitute for reading the
+              source frameworks themselves. The mappings below — from
+              <a class="text-link" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noreferrer">NIST AI RMF</a>,
+              the <a class="text-link" href="https://genai.owasp.org/llm-top-10/" target="_blank" rel="noreferrer">OWASP LLM Top 10</a>,
+              and the <a class="text-link" href="https://www.microsoft.com/en-us/ai/responsible-ai" target="_blank" rel="noreferrer">Microsoft Responsible AI Standard</a>
+              — onto the Azure AI stack reflect first-hand experience helping customers
+              from SMB to enterprise stand up generative-AI workloads. The frameworks
+              are referenced, not quoted; the opinions are mine.
+            </p>
+            <p>
+              With that out of the way, the thesis is short: <strong>trust is an
+              architecture, not a checkbox.</strong> Production AI systems need a six-pillar
+              control surface — governance, security, observability, guardrails, red
+              teaming, and continuous evaluation. Anything less leaks responsibility
+              somewhere, and the leak is usually invisible until a customer finds it
+              for you.
+            </p>
+
+            <h2 id="control-surface">The control surface</h2>
+            <p>
+              Think of the six pillars as a single control surface wrapped around the
+              model, not as six separate workstreams. <strong>Governance</strong> defines
+              the rules of engagement — what data may enter, what use cases are in
+              scope, who approves a deployment. <strong>Security</strong> protects the
+              runtime from identity, network, and supply-chain threats so the
+              model is reachable only through paths you trust. <strong>Observability</strong>
+              gives you eyes inside the loop: prompts, responses, tool calls, latencies,
+              token spend, and policy decisions. <strong>Guardrails</strong> constrain
+              what the model is allowed to receive and emit at request time.
+              <strong>Red teaming</strong> adversarially tests those constraints before
+              attackers do. <strong>Continuous evaluation</strong> keeps quality and safety
+              from drifting as prompts, models, and tools change underneath you.
+              Each pillar gets a framework lens and an Azure mapping in the next
+              section.
+            </p>
+
+            <h2 id="pillars">Six pillars in detail</h2>
+            <div class="article-pillars">
+              <div class="article-pillar">
+                <h3>Governance</h3>
+                <p>The decisions and ownership records that make every other pillar
+                  defensible — what is allowed, by whom, on which data, for which use case.</p>
+                <p class="eyebrow"><span>Framework lens</span><span>NIST AI RMF GOVERN &amp; MAP</span><span>MS Responsible AI · Accountability</span></p>
+                <p class="article-pillar-stack">
+                  <span>Microsoft Purview</span><span>Azure Policy</span><span>AI Content Safety policies</span><span>AI Foundry registries</span>
+                </p>
+              </div>
+
+              <div class="article-pillar">
+                <h3>Security</h3>
+                <p>The runtime perimeter: identity, secrets, network isolation, and
+                  threat detection so the model is reachable only through trusted paths.</p>
+                <p class="eyebrow"><span>Framework lens</span><span>OWASP LLM02 Insecure Output Handling</span><span>OWASP LLM06 Sensitive Info Disclosure</span><span>NIST AI RMF MANAGE</span></p>
+                <p class="article-pillar-stack">
+                  <span>Entra workload identities</span><span>Azure Key Vault</span><span>Private Link</span><span>Defender for AI</span><span>Network Isolation</span>
+                </p>
+              </div>
+
+              <div class="article-pillar">
+                <h3>Observability</h3>
+                <p>Structured visibility into every prompt, response, tool call, and
+                  policy decision — the substrate every other pillar depends on.</p>
+                <p class="eyebrow"><span>Framework lens</span><span>NIST AI RMF MEASURE</span><span>MS Responsible AI · Transparency</span></p>
+                <p class="article-pillar-stack">
+                  <span>Application Insights</span><span>Azure Monitor</span><span>Foundry tracing</span><span>OpenTelemetry</span><span>Custom evals telemetry</span>
+                </p>
+              </div>
+
+              <div class="article-pillar">
+                <h3>Guardrails</h3>
+                <p>Request-time constraints on what the model receives and emits —
+                  the visible safety floor users and downstream services rely on.</p>
+                <p class="eyebrow"><span>Framework lens</span><span>OWASP LLM01 Prompt Injection</span><span>OWASP LLM09 Misinformation</span><span>MS Responsible AI · Safety</span></p>
+                <p class="article-pillar-stack">
+                  <span>AI Content Safety (text + image + groundedness)</span><span>Prompt Shields</span><span>Jailbreak detection</span><span>Output filters</span>
+                </p>
+              </div>
+
+              <div class="article-pillar">
+                <h3>Red Teaming</h3>
+                <p>Structured adversarial pressure on the guardrails so failures
+                  surface in your environment, not in a customer incident.</p>
+                <p class="eyebrow"><span>Framework lens</span><span>NIST AI RMF MEASURE 2.7</span><span>OWASP LLM Top 10 (full coverage)</span></p>
+                <p class="article-pillar-stack">
+                  <span>PyRIT</span><span>Azure AI Evaluation SDK red-team plugins</span><span>Manual prompt-injection harnesses</span><span>Scheduled adversarial sweeps</span>
+                </p>
+              </div>
+
+              <div class="article-pillar">
+                <h3>Continuous Evaluation</h3>
+                <p>Versioned quality and safety scoring that runs on every change —
+                  prompts, models, tools, retrieval indexes — to prevent silent drift.</p>
+                <p class="eyebrow"><span>Framework lens</span><span>NIST AI RMF MEASURE &amp; MANAGE</span><span>MS Responsible AI · Reliability</span></p>
+                <p class="article-pillar-stack">
+                  <span>Azure AI Evaluation SDK</span><span>Foundry online evaluations</span><span>Drift telemetry</span><span>A/B prompt experiments</span><span>Golden test sets in source control</span>
+                </p>
+              </div>
+            </div>
+
+            <h2 id="operating-model">Operating model — separation of duties</h2>
+            <aside class="article-callout">
+              <p class="eyebrow"><span>Why this matters</span></p>
+              <p>
+                Pillars without owners drift. The single most reliable predictor I
+                have seen for whether a generative-AI workload survives its first
+                six months in production is whether three roles are explicitly
+                separated: a <strong>data and governance owner</strong> who decides what
+                may enter the system, a <strong>runtime and reliability owner</strong>
+                who runs the platform and holds the pager, and a <strong>prompt and
+                agent owner</strong> who ships changes to behavior. When any two of
+                these collapse into one person, evaluation gets skipped under
+                pressure and rollback never gets rehearsed.
+              </p>
+              <p>
+                Pipelines should enforce evidence — test coverage, eval pass
+                rates, content-safety scan results, and dependency provenance
+                must be artifacts, not screenshots. Rollback is a first-class
+                control: every prompt, agent definition, and tool registration
+                has a versioned previous-good state stored in source control.
+                Document, in plain text, exactly who can deploy a new prompt to
+                production and who can pull a deployed prompt down within five
+                minutes. If you cannot answer both questions today, that is the
+                first thing to fix.
+              </p>
+            </aside>
+
+            <h2 id="trust-loop">The minimum viable trust loop</h2>
+            <p>
+              The closing thesis is operational, not philosophical:
+              <strong>deploy → observe → evaluate → harden → redeploy.</strong> Every
+              production AI system worth trusting runs that loop on a schedule
+              measured in days, not quarters.
+            </p>
+            <p>
+              In practice, <em>deploy</em> means a versioned prompt, agent, and
+              tool manifest published through the same pipeline as your other
+              code. <em>Observe</em> means every request emits a trace with
+              prompt, response, tool calls, content-safety verdicts, and token
+              cost — flowing into Application Insights and Foundry tracing
+              without sampling on the safety signals. <em>Evaluate</em> means
+              your golden test set runs on every prompt change and on a nightly
+              schedule against the live model, with quality, groundedness, and
+              safety scores written back as telemetry. <em>Harden</em> means a
+              standing red-team cadence — at minimum a weekly PyRIT sweep
+              targeting the live agent — feeding new failing prompts back into
+              the golden set so the same break never lands twice. <em>Redeploy</em>
+              closes the loop on a known-good baseline.
+            </p>
+            <p>
+              You can start small — one agent, one set of guardrails, one
+              weekly evaluation pass — but you cannot skip a pillar. A
+              concrete first-30-days checklist:
+            </p>
+            <ol>
+              <li>Wire telemetry from day one (Application Insights + Foundry tracing) before the first real prompt is served.</li>
+              <li>Author a Prompt Shields and Content Safety policy and attach it to the deployment, not the application code.</li>
+              <li>Stand up a 100-prompt golden evaluation set in source control, covering both quality and safety cases.</li>
+              <li>Schedule one weekly red-team sweep — PyRIT or a manual harness — and triage the failures into the golden set.</li>
+              <li>Define a rollback runbook for prompts and agents, and rehearse it once with the on-call rotation.</li>
+            </ol>
+
+            <h2 id="closing">Closing</h2>
+            <p>
+              Trust is what turns a model into a system that an SMB or enterprise
+              customer can adopt with confidence. If you are standing up a similar
+              program and want to compare notes on what the first ninety days
+              actually look like, I would be glad to hear from you.
+            </p>
+          </div>
+
+          <footer class="article-cta glass-panel" data-reveal>
+            <div>
+              <p class="eyebrow"><span>Keep exploring</span></p>
+              <h2>Architecture notes from production AI work.</h2>
+              <p>Return to the portfolio for the full skills atlas, certifications, and journey — or reach out directly if you are designing a trust program of your own.</p>
+            </div>
+            <div class="contact-actions" aria-label="Article actions">
+              <a class="button button-primary" href="../index.html#writing">
+                <span>Back to portfolio</span>
+              </a>
+              <a class="button button-secondary" href="mailto:yenthuan@gmail.com">
+                <span>Email me</span>
+              </a>
+            </div>
+          </footer>
+        </article>
+      </main>
+
+      <footer class="footer glass-panel" data-reveal>
+        <div class="footer-brand">
+          <span class="brandmark-sigil">TY</span>
+          <div>
+            <strong>Thuan Yen Thanh</strong>
+            <p>Turning Azure, Microsoft Fabric, and agentic AI into adoption.</p>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#skills">Skills</a>
+          <a href="../index.html#certifications">Certifications</a>
+          <a href="../index.html#journey">Journey</a>
+          <a href="../index.html#writing">Writing</a>
+          <a href="../index.html#contact">Contact</a>
+        </nav>
+        <p class="footer-note">
+          <span id="current-year"></span> Static, responsive, and crafted with precision.
+        </p>
+      </footer>
+    </div>
+
+    <script src="../scripts/script.js" defer></script>
+  </body>
+</html>

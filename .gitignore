@@ -1,0 +1,93 @@
+# =====================================================================
+# .gitignore — public deploy hygiene for ytthuan.github.io (user site)
+# Goal: keep the local agent system, MCP runtime, dev artifacts, and
+# personal files out of the public repository while shipping only the
+# static portfolio surface (HTML, CSS, JS, images, manifest, sitemap).
+# =====================================================================
+
+# ----- OS / editor clutter -----
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ----- Agent / AI tooling configs (keep local) -----
+# Generic agent memory + instructions
+AGENTS.md
+AGENTS.md.bak
+*.agent.md
+copilot-instructions.md
+CLAUDE.md
+GEMINI.md
+
+# Tool-specific config dirs (any framework)
+.copilot/
+.claude/
+.claude-code/
+.codex/
+.cursor/
+.cursorrules
+.opencode/
+.gemini/
+.continue/
+.roo/
+.aider*
+.windsurf/
+.windsurfrules
+.zed/
+.helix/
+
+# Project-local agent system
+.github/agents/
+.github/skills/
+.github/instructions/
+.github/chatmodes/
+.github/prompts/
+
+# ----- MCP / Playwright runtime (local-only) -----
+.mcp.json
+.playwright-mcp/
+playwright-report/
+test-results/
+playwright/.cache/
+
+# ----- Imagegen intermediates (sources + prompts) -----
+# Final assets live under images/ and ARE committed.
+output/
+tmp/
+
+# ----- Personal / internal -----
+# CV is intentionally not linked from the public site.
+ThuanYenThanh_cv.pdf
+*.cv.pdf
+
+# ----- Build / package noise (defensive) -----
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vercel/
+.netlify/
+
+# ----- Logs -----
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ----- Local env / secrets -----
+.env
+.env.*
+!.env.example
+*.pem
+*.key

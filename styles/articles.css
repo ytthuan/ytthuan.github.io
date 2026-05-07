@@ -1,0 +1,634 @@
+/* ============================================================================
+   articles.css — chrome and typography for long-form article pages.
+   Loaded AFTER styles.css. Article pages use <body class="is-article">.
+   Reuses :root tokens from styles.css; introduces no new tokens, fonts, or
+   colors. Designed to layer on the existing dark-graphite/teal/amber system.
+   ============================================================================ */
+
+/* ---------- Page shell ---------- */
+
+.article-page {
+  display: block;
+}
+
+body.is-article main {
+  display: block;
+  padding-block: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* ---------- Topbar (slim variant) ---------- */
+/* Visually identical to home topbar for brand consistency; only spacing eases. */
+
+.article-topbar {
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Hero ---------- */
+
+.article-hero {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--radius-xl);
+}
+
+.article-hero-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--glass);
+  border: 1px solid var(--line);
+}
+
+.article-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.article-hero-copy {
+  max-width: 60ch;
+}
+
+.article-hero-copy .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.article-hero-copy h1 {
+  margin: 0 0 1rem;
+  max-width: 22ch;
+  font-family: var(--display);
+  font-size: var(--fs-display-md);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-strong);
+}
+
+.article-deck {
+  margin: 0 0 1.25rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.article-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.85rem;
+  margin: 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: var(--fs-meta);
+  color: var(--muted-2);
+  list-style: none;
+}
+
+.article-hero-meta > * + *::before {
+  content: "·";
+  margin-right: 0.85rem;
+  color: var(--line-strong);
+}
+
+.article-hero-meta a {
+  color: var(--cyan);
+  transition: color var(--transition);
+}
+
+.article-hero-meta a:hover {
+  color: var(--teal);
+}
+
+/* ---------- Body layout ---------- */
+
+.article-body {
+  display: block;
+  width: min(960px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 0 clamp(0.5rem, 2vw, 1rem) clamp(2rem, 5vw, 4rem);
+}
+
+@media (min-width: 1024px) {
+  .article-body {
+    width: min(1180px, calc(100vw - 2rem));
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+}
+
+/* ---------- Table of contents ---------- */
+
+.article-toc {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .article-toc {
+    display: block;
+    position: sticky;
+    top: 6rem;
+    padding: 0 1.25rem 0 0;
+    border-right: 1px solid var(--line);
+    font-size: var(--fs-body-sm);
+    line-height: 1.5;
+  }
+
+  .article-toc-label {
+    margin: 0 0 0.85rem;
+    font-family: var(--mono);
+    font-size: var(--fs-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .article-toc ol,
+  .article-toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .article-toc a {
+    color: var(--muted);
+    transition: color var(--transition);
+  }
+
+  .article-toc a:hover,
+  .article-toc a.is-active {
+    color: var(--text-strong);
+  }
+}
+
+/* ---------- Prose typography ---------- */
+
+.article-prose {
+  max-width: 64ch;
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.article-prose > * + * {
+  margin-top: 1.25rem;
+}
+
+.article-prose p {
+  margin: 0 0 1.25rem;
+}
+
+.article-prose h2 {
+  position: relative;
+  margin: 4rem 0 1.25rem;
+  padding-left: 0.85rem;
+  font-family: var(--display);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-strong);
+  border-left: 3px solid var(--cyan);
+}
+
+.article-prose h3 {
+  margin: 2.5rem 0 0.75rem;
+  font-family: var(--display);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+  color: var(--text-strong);
+}
+
+.article-prose ul,
+.article-prose ol {
+  margin: 1.25rem 0;
+  padding-left: 1.5rem;
+}
+
+.article-prose li {
+  margin: 0.5rem 0;
+}
+
+.article-prose blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--cyan);
+  background: var(--panel);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  color: var(--text);
+}
+
+.article-prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.article-prose code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  padding: 0.15em 0.4em;
+  background: var(--glass);
+  border-radius: 0.3rem;
+  color: var(--text-strong);
+}
+
+.article-prose pre {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.article-prose pre code {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+.article-prose strong {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+.article-prose em {
+  font-style: italic;
+  color: var(--text);
+}
+
+.article-prose a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+
+.article-prose a:hover {
+  color: var(--teal);
+  text-decoration-color: var(--teal);
+}
+
+.article-prose hr {
+  border: 0;
+  height: 1px;
+  background: var(--line);
+  margin: 3rem 0;
+}
+
+.article-prose img,
+.article-prose figure {
+  margin: 2rem 0;
+  max-width: 100%;
+}
+
+.article-prose figure img {
+  margin: 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+}
+
+.article-prose figcaption {
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: var(--fs-meta);
+  color: var(--muted-2);
+}
+
+/* ---------- Pillars grid ---------- */
+
+.article-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.article-pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--radius-lg);
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.article-pillar h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--display);
+  font-size: 1.1rem;
+  color: var(--text-strong);
+}
+
+.article-pillar-marker {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: rgba(59, 74, 214, 0.12);
+  color: var(--cyan);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.article-pillar-lens {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.article-pillar-azure {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-pillar-azure li {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--glass);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .article-pillar:hover {
+    transform: translateY(-2px);
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow);
+  }
+}
+
+/* ---------- Callout ---------- */
+
+.article-callout {
+  margin: 2.5rem 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--panel);
+  border-left: 4px solid var(--amber);
+  border-radius: var(--radius-md);
+}
+
+.article-callout-label {
+  margin: 0 0 0.5rem;
+  font-family: var(--mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--amber-strong);
+}
+
+.article-callout p {
+  margin: 0;
+  color: var(--text);
+}
+
+.article-callout p + p {
+  margin-top: 0.85rem;
+}
+
+/* ---------- Closing CTA ---------- */
+
+.article-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 3rem 0 0;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--radius-xl);
+}
+
+.article-cta h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: var(--fs-h2);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-strong);
+}
+
+.article-cta p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+.article-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Topology SVG (article 2) ---------- */
+
+.article-topology-svg {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+  height: auto;
+  padding: 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- Try-it install panel (article 2) ---------- */
+
+.article-tryit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 720px) {
+  .article-tryit {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.article-tryit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-lg);
+}
+
+.article-tryit-card h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  color: var(--text-strong);
+}
+
+.article-tryit-card pre {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-strong);
+}
+
+/* ---------- Reduced-motion overrides ---------- */
+/* Global rule in styles.css already disables animations, smooth scroll, and  */
+/* reveal transforms; this guarantees article-specific hover transforms also  */
+/* settle to zero even in browsers that defer to component-scoped rules.     */
+
+@media (prefers-reduced-motion: reduce) {
+  .article-pillar,
+  .article-pillar:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Class-name aliases ---------- */
+/* Bridge minor markup naming variants to the canonical article styles.      */
+
+.article-hero-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--glass);
+  border: 1px solid var(--line);
+  margin: 0;
+}
+
+.article-hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.article-pillar-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.article-pillar-stack span {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--glass);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text);
+}
+
+/* Pillar cards in article HTML get a subtle glass background by default */
+.article-pillar {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+/* When .article-callout uses an inner <p class="eyebrow"> instead of  */
+/* .article-callout-label, mimic the same emphasis.                     */
+.article-callout > .eyebrow:first-child {
+  margin: 0 0 0.5rem;
+  color: var(--amber-strong);
+}
+
+/* Fallback styling for pillar lens line marked up with <p class="eyebrow"> */
+.article-pillar > .eyebrow {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.6rem;
+}
+
+.article-pillar > .eyebrow > span:not(:first-child) {
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ---------- Article hero/page width constraints ---------- */
+/* Keep article content centered and reasonably bounded; the hero illustration */
+/* should not eat the entire fold on desktop.                                  */
+
+body.is-article main.article-page {
+  width: min(960px, calc(100vw - 2rem));
+  margin: 0 auto;
+}
+
+.article-hero {
+  width: 100%;
+}
+
+.article-hero-visual {
+  aspect-ratio: 21 / 9;
+}
+
+@media (min-width: 1024px) {
+  body.is-article main.article-page {
+    width: min(1080px, calc(100vw - 2rem));
+  }
+}
+
+/* ---------- Mobile overflow guards ---------- */
+/* Code blocks in tryit cards must scroll internally, not push card width   */
+/* outside its parent. min-width:0 lets the flex parent constrain children. */
+
+.article-tryit-card,
+.article-tryit-card pre,
+.article-tryit-card code {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.article-tryit-card pre {
+  word-wrap: normal;
+  white-space: pre;
+}
+
+.article-pillar {
+  min-width: 0;
+}
