@@ -3,10 +3,10 @@ const skills = [
   { mark: "DA", title: "Microsoft Fabric & Azure data platform", detail: "Fabric Lakehouse/Warehouse, OneLake, Direct Lake, Spark, Synapse, Azure SQL, Purview, semantic models, RLS." },
   { mark: "AI", title: "Azure AI & generative AI", detail: "Azure OpenAI, AI Foundry, AI Search, Document Intelligence, Semantic Kernel, prompt engineering, Responsible AI." },
   { mark: "AG", title: "Foundry agents & multi-agent orchestration", detail: "Microsoft Foundry Agent Service, AI Foundry Agents SDK, sequential workflows, group chat, HITL, MCP, Logic Apps." },
-  { mark: "CA", title: "AI coding agents & agentic delivery", detail: "GitHub Copilot, Claude Code, Codex, OpenCode, Cursor for prompt-to-patch, refactoring, and PR review acceleration." },
+  { mark: "CA", title: "AI coding agents & delivery workflows", detail: "GitHub Copilot, Claude Code, Codex, OpenCode, and Cursor for code review, refactoring, test triage, and repeatable patch workflows." },
   { mark: "AM", title: "App modernization & Azure PaaS", detail: "App Service, Functions, AKS, Container Apps, API Management, microservices, GitHub Actions, Azure DevOps." },
   { mark: "SE", title: "Security, identity & governance", detail: "Microsoft Entra ID, Defender for Cloud, Zero Trust, policy, and cost governance across enterprise and SMB." },
-  { mark: "MA", title: "Cloud presales & adoption", detail: "Discovery, landing-zone delivery, workshops, MSX/MCEM, win themes, and customer enablement from enterprise to SMB." },
+  { mark: "MA", title: "Customer architecture & enablement", detail: "Discovery, landing-zone planning, workshops, MSX/MCEM, solution framing, and customer enablement from enterprise to SMB." },
 ];
 
 const certifications = [
@@ -230,20 +230,26 @@ const setupScrollState = () => {
   const navLinks = [...document.querySelectorAll(".nav-link")];
 
   const updateScrollState = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+
     if (progressBar) {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
       const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
       progressBar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
     }
 
     const focusLine = window.scrollY + window.innerHeight * 0.34;
     let activeId = sections[0]?.id ?? "";
+    const isAtPageEnd = scrollable > 0 && window.scrollY >= scrollable - 8;
 
-    sections.forEach((section) => {
-      if (focusLine >= section.offsetTop) {
-        activeId = section.id;
-      }
-    });
+    if (isAtPageEnd && sections.length > 0) {
+      activeId = sections[sections.length - 1].id;
+    } else {
+      sections.forEach((section) => {
+        if (focusLine >= section.offsetTop) {
+          activeId = section.id;
+        }
+      });
+    }
 
     navLinks.forEach((link) => {
       link.classList.toggle("is-active", link.getAttribute("href") === `#${activeId}`);
@@ -253,6 +259,65 @@ const setupScrollState = () => {
   window.addEventListener("scroll", updateScrollState, { passive: true });
   window.addEventListener("resize", updateScrollState);
   updateScrollState();
+};
+
+const setupPrimaryNav = () => {
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const nav = document.querySelector("#primary-navigation");
+  const topbar = toggle?.closest(".topbar");
+
+  if (!toggle || !nav || !topbar) return;
+
+  const desktopQuery = window.matchMedia("(min-width: 901px)");
+  document.documentElement.classList.add("nav-enhanced");
+
+  const isOpen = () => toggle.getAttribute("aria-expanded") === "true";
+
+  const setOpen = (open, { restoreFocus = false } = {}) => {
+    toggle.setAttribute("aria-expanded", String(open));
+    topbar.classList.toggle("is-nav-open", open);
+
+    if (!open && restoreFocus) {
+      toggle.focus();
+    }
+  };
+
+  toggle.addEventListener("click", () => {
+    setOpen(!isOpen());
+  });
+
+  nav.addEventListener("click", (event) => {
+    const target = event.target instanceof Element ? event.target : null;
+    if (target?.closest("a")) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isOpen()) {
+      setOpen(false, { restoreFocus: true });
+    }
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (isOpen() && !topbar.contains(event.target)) {
+      setOpen(false);
+    }
+  });
+
+  const handleBreakpointChange = () => {
+    if (desktopQuery.matches) {
+      setOpen(false);
+    }
+  };
+
+  if (typeof desktopQuery.addEventListener === "function") {
+    desktopQuery.addEventListener("change", handleBreakpointChange);
+  } else if (typeof desktopQuery.addListener === "function") {
+    desktopQuery.addListener(handleBreakpointChange);
+  }
+
+  handleBreakpointChange();
 };
 
 const setupCertMarquee = () => {
@@ -409,6 +474,7 @@ const init = () => {
 
   setupReveal();
   setupInteractiveSurfaces();
+  setupPrimaryNav();
   setupScrollState();
   setupCertMarquee();
   setupSigilFloat();

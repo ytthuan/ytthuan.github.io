@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Why agent systems need architecture — Thuan Yen Thanh</title>
-    <meta name="description" content="Six axioms behind ytthuan/agents-system-setup — a multi-runtime plugin that turns one-off agent prompts into a reviewable system with topology, MCP gates, Canonical IR, parallel waves, and evidence-based work." />
+    <meta name="description" content="Six axioms behind ytthuan/agents-system-setup — a multi-runtime plugin that organizes agent work with topology, MCP approval gates, Canonical IR, parallel waves, and reviewable evidence." />
     <meta name="author" content="Thuan Yen Thanh" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#f7f4ee" />
@@ -13,7 +13,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Thuan Yen Thanh — Azure Cloud Solution Architect Portfolio" />
     <meta property="og:title" content="Why agent systems need architecture — Thuan Yen Thanh" />
-    <meta property="og:description" content="Six axioms behind ytthuan/agents-system-setup — a multi-runtime plugin that turns one-off agent prompts into a reviewable system with topology, MCP gates, Canonical IR, parallel waves, and evidence-based work." />
+    <meta property="og:description" content="Six axioms behind ytthuan/agents-system-setup — a multi-runtime plugin that organizes agent work with topology, MCP approval gates, Canonical IR, parallel waves, and reviewable evidence." />
     <meta property="og:url" content="https://ytthuan.github.io/articles/agents-system-philosophy.html" />
     <meta property="og:image" content="https://ytthuan.github.io/images/og/og-default.png" />
     <meta property="og:image:width" content="1200" />
@@ -22,7 +22,7 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Why agent systems need architecture — Thuan Yen Thanh" />
-    <meta name="twitter:description" content="Six axioms behind ytthuan/agents-system-setup — a multi-runtime plugin that turns one-off agent prompts into a reviewable system with topology, MCP gates, Canonical IR, parallel waves, and evidence-based work." />
+    <meta name="twitter:description" content="Six axioms behind ytthuan/agents-system-setup — a multi-runtime plugin that organizes agent work with topology, MCP approval gates, Canonical IR, parallel waves, and reviewable evidence." />
     <meta name="twitter:image" content="https://ytthuan.github.io/images/og/og-default.png" />
 
     <link rel="manifest" href="../manifest.webmanifest" />
@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="../styles/articles.css" />
 
     <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Why agent systems need architecture","description":"Six axioms behind ytthuan/agents-system-setup — a multi-runtime plugin that turns one-off agent prompts into a reviewable system with topology, MCP gates, Canonical IR, parallel waves, and evidence-based work.","image":"https://ytthuan.github.io/images/articles/agents-system-philosophy-hero.webp","datePublished":"2026-05-07","dateModified":"2026-05-07","author":{"@id":"https://ytthuan.github.io/#person"},"publisher":{"@id":"https://ytthuan.github.io/#person"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ytthuan.github.io/articles/agents-system-philosophy.html"},"articleSection":"Field notes · Agent systems","keywords":"multi-agent systems, MCP, Model Context Protocol, agent orchestration, Canonical IR, parallel agents, agent governance, GitHub Copilot, Claude Code, OpenCode, OpenAI Codex, Gemini CLI","mentions":{"@type":"SoftwareSourceCode","name":"agents-system-setup","codeRepository":"https://github.com/ytthuan/agents-system-setup","programmingLanguage":["Markdown","Shell","PowerShell"]}}
+{"@context":"https://schema.org","@type":"Article","headline":"Why agent systems need architecture","description":"Six axioms behind ytthuan/agents-system-setup — a multi-runtime plugin that organizes agent work with topology, MCP approval gates, Canonical IR, parallel waves, and reviewable evidence.","image":"https://ytthuan.github.io/images/articles/agents-system-philosophy-hero.webp","datePublished":"2026-05-07","dateModified":"2026-05-07","author":{"@id":"https://ytthuan.github.io/#person"},"publisher":{"@id":"https://ytthuan.github.io/#person"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ytthuan.github.io/articles/agents-system-philosophy.html"},"articleSection":"Field notes · Agent systems","keywords":"multi-agent systems, MCP, Model Context Protocol, agent orchestration, Canonical IR, parallel agents, agent governance, GitHub Copilot, Claude Code, OpenCode, OpenAI Codex, Gemini CLI","mentions":{"@type":"SoftwareSourceCode","name":"agents-system-setup","codeRepository":"https://github.com/ytthuan/agents-system-setup","programmingLanguage":["Markdown","Shell","PowerShell"]}}
     </script>
   </head>
   <body class="is-article">
@@ -61,7 +61,21 @@
             <small>Azure Cloud Solution Architect</small>
           </span>
         </a>
-        <nav class="topnav" aria-label="Primary navigation">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle primary navigation"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          data-nav-toggle
+        >
+          <span class="nav-toggle-copy" aria-hidden="true">Menu</span>
+          <span class="nav-toggle-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+        <nav id="primary-navigation" class="topnav" aria-label="Primary navigation">
           <a class="nav-link" href="../index.html#about">About</a>
           <a class="nav-link" href="../index.html#skills">Skills</a>
           <a class="nav-link" href="../index.html#certifications">Certifications</a>
@@ -86,7 +100,7 @@
             <h1>Why agent systems need architecture.</h1>
             <p class="article-deck">
               Agents are systems. Systems need topology, governance, and evidence —
-              not vibes. Six axioms condensed from twenty-one hard rules behind a
+              not loose prompt collections. Six axioms condensed from twenty-one hard rules behind a
               multi-runtime plugin I built so the same multi-agent setup can be
               installed, audited, and replicated across five different agent runtimes.
             </p>
@@ -446,7 +460,7 @@ cd agents-system-setup
           <span class="brandmark-sigil">TY</span>
           <div>
             <strong>Thuan Yen Thanh</strong>
-            <p>Turning Azure, Microsoft Fabric, and agentic AI into adoption.</p>
+            <p>Designing practical Azure, Microsoft Fabric, and AI agent solutions teams can adopt.</p>
           </div>
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">

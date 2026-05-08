@@ -61,7 +61,21 @@
             <small>Azure Cloud Solution Architect</small>
           </span>
         </a>
-        <nav class="topnav" aria-label="Primary navigation">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Toggle primary navigation"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          data-nav-toggle
+        >
+          <span class="nav-toggle-copy" aria-hidden="true">Menu</span>
+          <span class="nav-toggle-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+        <nav id="primary-navigation" class="topnav" aria-label="Primary navigation">
           <a class="nav-link" href="../index.html#about">About</a>
           <a class="nav-link" href="../index.html#skills">Skills</a>
           <a class="nav-link" href="../index.html#certifications">Certifications</a>
@@ -78,7 +92,7 @@
               <picture>
                 <source srcset="../images/articles/ai-trust-controls-hero.webp" type="image/webp" />
                 <img src="../images/articles/ai-trust-controls-hero.png"
-                     alt="Abstract isometric AI trust observatory with overlapping translucent control surfaces."
+                     alt="Abstract isometric AI trust observatory with layered governance and evaluation panels."
                      width="1536" height="1024" loading="eager" decoding="async" fetchpriority="high" />
               </picture>
             </figure>
@@ -309,7 +323,7 @@
           <span class="brandmark-sigil">TY</span>
           <div>
             <strong>Thuan Yen Thanh</strong>
-            <p>Turning Azure, Microsoft Fabric, and agentic AI into adoption.</p>
+            <p>Designing practical Azure, Microsoft Fabric, and AI agent solutions teams can adopt.</p>
           </div>
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">
